@@ -20,24 +20,23 @@ public class OffersPageStepDefs {
     @And("the user searches again for {string} on the Offers page")
     public void the_user_searches_again_for_on_the_offers_page(String string) throws InterruptedException {
         switchToOffersPage();
-        offersPage = testSetup.pageObjectManager.getOffersPage();
+        offersPage = testSetup.getPageObjectManager().getOffersPage();
         offersPage.searchProduct(string);
         offersPageProductName = offersPage.getProductName();
     }
 
     @Then("the product {string} is displayed on both pages")
     public void the_product_is_displayed_on_both_pages(String string) throws InterruptedException {
-        Assert.assertEquals(testSetup.landingPageProductName, offersPageProductName);
-        Thread.sleep(1000);
-        testSetup.genericUtils.quitDriver();
+        Assert.assertEquals(testSetup.getLandingPageProductName(), offersPageProductName);
+        testSetup.getGenericUtils().quitDriver();
     }
 
     public void switchToOffersPage() {
-        isOnOffersPage = testSetup.genericUtils.getCurrentUrl().equalsIgnoreCase("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+        isOnOffersPage = testSetup.getGenericUtils().getCurrentUrl().equalsIgnoreCase("https://rahulshettyacademy.com/seleniumPractise/#/offers");
         if (!isOnOffersPage) {
-            LandingPage landingPage = testSetup.pageObjectManager.getLandingPage();
+            LandingPage landingPage = testSetup.getPageObjectManager().getLandingPage();
             landingPage.selectTopDealsPage();
-            testSetup.genericUtils.switchWindowToChild();
+            testSetup.getGenericUtils().switchWindowToChild();
         }
     }
 }

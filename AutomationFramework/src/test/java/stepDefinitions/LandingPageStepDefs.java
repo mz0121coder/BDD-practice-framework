@@ -15,12 +15,12 @@ public class LandingPageStepDefs {
 
     @Given("the user is on the GreenCart landing page")
     public void the_user_is_on_the_green_cart_landing_page() {
-        landingPage = testSetup.pageObjectManager.getLandingPage();
+        landingPage = testSetup.getPageObjectManager().getLandingPage();
     }
 
     @When("the user searches for {string} on the Home page")
     public void the_user_searches_for_on_the_home_page(String string) throws InterruptedException {
         landingPage.searchItem(string);
-        testSetup.landingPageProductName = landingPage.getProductName();
+        testSetup.setLandingPageProductName(landingPage.getProductName());
     }
 }

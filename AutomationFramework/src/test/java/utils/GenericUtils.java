@@ -6,10 +6,14 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class GenericUtils {
-    public WebDriver driver;
+    private WebDriver driver;
 
     public GenericUtils(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
     }
 
     public void switchWindowToChild() {
@@ -20,11 +24,8 @@ public class GenericUtils {
         driver.switchTo().window(childWindow);
     }
 
-    public void quitDriver() {
+    public void quitDriver() throws InterruptedException {
+        Thread.sleep(1000);
         driver.quit();
-    }
-
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
     }
 }
