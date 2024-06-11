@@ -25,7 +25,7 @@ public class GenericUtils {
     }
 
     public void quitDriver() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(500);
         driver.quit();
     }
 }

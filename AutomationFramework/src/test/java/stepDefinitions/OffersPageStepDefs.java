@@ -26,9 +26,8 @@ public class OffersPageStepDefs {
     }
 
     @Then("the product {string} is displayed on both pages")
-    public void the_product_is_displayed_on_both_pages(String string) throws InterruptedException {
+    public void the_product_is_displayed_on_both_pages(String string) {
         Assert.assertEquals(testSetup.getLandingPageProductName(), offersPageProductName);
-        testSetup.getGenericUtils().quitDriver();
     }
 
     public void switchToOffersPage() {

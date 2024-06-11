@@ -16,7 +16,7 @@ public class LandingPage {
 
     public void searchItem(String string) throws InterruptedException {
         driver.findElement(searchField).sendKeys(string);
-        Thread.sleep(1500);
+        Thread.sleep(500);
     }
 
     public String getProductName() {
