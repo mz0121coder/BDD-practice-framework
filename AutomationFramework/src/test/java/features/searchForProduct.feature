@@ -1,4 +1,4 @@
-Feature: Search and place the order for products
+Feature: Searching for products in the GreenKart store
 
   Scenario Outline: Product search in Home page and Offers page
     Given the user is on the GreenCart landing page

@@ -21,6 +21,15 @@ public class LandingPageStepDefs {
     @When("the user searches for {string} on the Home page")
     public void the_user_searches_for_on_the_home_page(String string) throws InterruptedException {
         landingPage.searchItem(string);
-        testSetup.setLandingPageProductName(landingPage.getProductName());
+        if (landingPage.getProductName() != null) testSetup.setLandingPageProductName(landingPage.getProductName());
+    }
+
+    @When("the user adds {string} of the product to their cart and goes to checkout")
+    public void the_user_adds_of_the_product_to_their_cart_and_goes_to_checkout(String string) throws InterruptedException {
+        int quantity = Integer.parseInt(string);
+        landingPage.incrementItem(quantity);
+        landingPage.addToCart();
+        landingPage.selectCartIcon();
+        landingPage.goToCheckout();
     }
 }
