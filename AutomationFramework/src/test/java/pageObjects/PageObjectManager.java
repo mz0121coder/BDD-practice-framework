@@ -7,6 +7,7 @@ public class PageObjectManager {
     private LandingPage landingPage;
     private OffersPage offersPage;
     private CheckoutPage checkoutPage;
+    private ConfirmationPage confirmationPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -25,5 +26,10 @@ public class PageObjectManager {
     public CheckoutPage getCheckoutPage() {
         checkoutPage = new CheckoutPage(driver);
         return checkoutPage;
+    }
+
+    public ConfirmationPage getConfirmationPage() {
+        confirmationPage = new ConfirmationPage(driver);
+        return confirmationPage;
     }
 }

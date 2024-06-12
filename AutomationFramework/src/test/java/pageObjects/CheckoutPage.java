@@ -30,4 +30,9 @@ public class CheckoutPage {
     public Boolean verifyPlaceOrderBtn() {
         return driver.findElement(placeOrder).isDisplayed();
     }
+
+    public void placeOrder() throws InterruptedException {
+        driver.findElement(placeOrder).click();
+        Thread.sleep(500);
+    }
 }

@@ -13,12 +13,12 @@ public class CheckoutPageStepDefs {
 
     public CheckoutPageStepDefs(TestSetup testSetup) {
         this.testSetup = testSetup;
+        this.checkoutPage = testSetup.getPageObjectManager().getCheckoutPage();
     }
 
     @Then("the user sees the quantity {string} of the product {string} in their cart")
     public void the_user_sees_the_quantity_of_the_product_in_their_cart(String amountString, String productString) throws InterruptedException {
         switchToCheckoutPage();
-        checkoutPage = testSetup.getPageObjectManager().getCheckoutPage();
         String productName = checkoutPage.getProductName();
         int quantity = checkoutPage.getQuantity();
         Assert.assertTrue(Integer.parseInt(amountString) == quantity && productString.equalsIgnoreCase(productName));
@@ -28,6 +28,13 @@ public class CheckoutPageStepDefs {
     public void can_enter_a_promo_code_and_place_the_order() {
         Assert.assertTrue(checkoutPage.verifyPromoBtn());
         Assert.assertTrue(checkoutPage.verifyPlaceOrderBtn());
+    }
+
+
+    @Then("the user clicks the button to place the order")
+    public void the_user_clicks_the_button_to_place_the_order() throws InterruptedException {
+        switchToCheckoutPage();
+        checkoutPage.placeOrder();
     }
 
     public void switchToCheckoutPage() throws InterruptedException {

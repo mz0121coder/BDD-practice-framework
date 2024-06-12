@@ -15,12 +15,12 @@ public class OffersPageStepDefs {
 
     public OffersPageStepDefs(TestSetup testSetup) {
         this.testSetup = testSetup;
+        this.offersPage = testSetup.getPageObjectManager().getOffersPage();
     }
 
     @And("the user searches again for {string} on the Offers page")
     public void the_user_searches_again_for_on_the_offers_page(String string) throws InterruptedException {
         switchToOffersPage();
-        offersPage = testSetup.getPageObjectManager().getOffersPage();
         offersPage.searchProduct(string);
         offersPageProductName = offersPage.getProductName();
     }

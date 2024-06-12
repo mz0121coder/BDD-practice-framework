@@ -1,7 +1,7 @@
 Feature: Searching for products in the GreenKart store
 
   Scenario Outline: Product search in Home page and Offers page
-    Given the user is on the GreenCart landing page
+    Given the user is on the GreenKart landing page
     When the user searches for "<search>" on the Home page
     And the user searches again for "<search>" on the Offers page
     Then the product "<name>" is displayed on both pages
