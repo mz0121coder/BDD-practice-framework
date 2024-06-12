@@ -1,7 +1,7 @@
-Feature: Adding product to cart, going to checkout & purchasing the product
+Feature: Purchasing a product
 
   @purchase
-  Scenario Outline:
+  Scenario Outline: Add product to cart & complete the purchase
     Given the user is on the GreenKart landing page
     When the user searches for "<search>" on the Home page
     And the user adds "<quantity>" of the product to their cart and goes to checkout

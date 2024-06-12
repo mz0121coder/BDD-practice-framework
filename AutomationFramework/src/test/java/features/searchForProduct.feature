@@ -1,5 +1,6 @@
-Feature: Searching for products in the GreenKart store
+Feature: Searching for products
 
+  @search
   Scenario Outline: Product search in Home page and Offers page
     Given the user is on the GreenKart landing page
     When the user searches for "<search>" on the Home page
