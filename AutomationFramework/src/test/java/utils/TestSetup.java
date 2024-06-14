@@ -31,4 +31,8 @@ public class TestSetup {
     public PageObjectManager getPageObjectManager() {
         return pageObjectManager;
     }
+
+    public TestBase getTestBase() {
+        return testBase;
+    }
 }
